@@ -1,64 +1,44 @@
-import { useEffect } from "react";
-import * as THREE from "three";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
+
+function Cube() {
+  return (
+    <mesh rotation={[0.5, 0.5, 0]}>
+      <boxGeometry args={[2, 2, 2]} />
+
+      <meshStandardMaterial
+        color="#00ffcc"
+        metalness={0.5}
+        roughness={0.2}
+      />
+    </mesh>
+  );
+}
 
 const ThreeScene = () => {
-  useEffect(() => {
-    const scene = new THREE.Scene();
+  return (
+    <Canvas
+      style={{
+        width: "100vw",
+        height: "100vh",
+        background: "#111111",
+      }}
+    >
+      {/* Lights */}
+      <ambientLight intensity={0.5} />
 
-    const camera = new THREE.PerspectiveCamera(
-      75,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      1000
-    );
+      <directionalLight
+        position={[2, 2, 5]}
+        intensity={1}
+      />
 
-    const renderer = new THREE.WebGLRenderer({
-      antialias: true,
-    });
+      {/* Cube */}
+      <Cube />
 
-    renderer.setSize(window.innerWidth, window.innerHeight);
-
-    document.body.appendChild(renderer.domElement);
-
-    // Cube
-    const geometry = new THREE.BoxGeometry();
-
-    const material = new THREE.MeshStandardMaterial({
-      color: 0x00ffcc,
-    });
-
-    const cube = new THREE.Mesh(geometry, material);
-
-    scene.add(cube);
-
-    // Light
-    const light = new THREE.DirectionalLight(
-      0xffffff,
-      1
-    );
-
-    light.position.set(2, 2, 5);
-
-    scene.add(light);
-
-    // Camera Position
-    camera.position.z = 5;
-
-    // Animation
-    const animate = () => {
-      requestAnimationFrame(animate);
-
-      cube.rotation.x += 0.01;
-      cube.rotation.y += 0.01;
-
-      renderer.render(scene, camera);
-    };
-
-    animate();
-
-  }, []);
-
-  return null;
+      {/* Controls */}
+      <OrbitControls />
+    </Canvas>
+  );
 };
 
 export default ThreeScene;
