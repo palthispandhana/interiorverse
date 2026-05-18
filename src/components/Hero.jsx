@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
-    <div className="absolute top-0 left-0 w-full h-screen flex flex-col justify-center items-center text-white z-10">
+    <div className="text-5xl md:text-7xl font-extrabold">
 
       {/* Heading */}
       <motion.h1
@@ -19,24 +19,36 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 1 }}
-        className="text-xl text-gray-300 mb-6 text-center"
+        className="text-lg md:text-2xl text-gray-300"
       >
         Immersive 3D Interior Design Experience
       </motion.p>
 
       {/* Button */}
       <motion.button
-        whileHover={{
-          scale: 1.1,
-          boxShadow: "0px 0px 20px #22d3ee",
-        }}
+  whileHover={{
+    scale: 1.1,
+    boxShadow: "0px 0px 20px #22d3ee",
+  }}
 
-        whileTap={{ scale: 0.95 }}
+  whileTap={{ scale: 0.95 }}
 
-        className="px-6 py-3 bg-cyan-400 text-black rounded-full font-semibold transition duration-300"
-      >
-        Explore Now
-      </motion.button>
+  className="
+  px-8 py-4
+  bg-cyan-400
+  text-black
+  rounded-full
+  font-bold
+  text-lg
+  hover:scale-110
+  transition
+  duration-300
+  shadow-lg
+  shadow-cyan-500/50
+  "
+>
+  Explore Now
+</motion.button>
 
     </div>
   );

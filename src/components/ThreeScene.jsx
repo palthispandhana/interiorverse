@@ -42,8 +42,16 @@ const ThreeScene = () => {
 
       {/* Controls */}
       <OrbitControls
-        enableZoom={true}
-      />
+  enableZoom={true}
+  autoRotate={true}
+  autoRotateSpeed={1}
+/>
+{/* Spotlights */}
+<spotLight
+  position={[10, 15, 10]}
+  angle={0.3}
+  intensity={2}
+/>
     </Canvas>
   );
 };
