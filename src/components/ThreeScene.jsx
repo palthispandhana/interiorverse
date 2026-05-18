@@ -17,7 +17,7 @@ function Cube() {
       <boxGeometry args={[2, 2, 2]} />
 
       <meshStandardMaterial
-        color="#00ffcc"
+        color="#22d3ee"
         metalness={0.5}
         roughness={0.2}
       />
@@ -49,12 +49,18 @@ const ThreeScene = () => {
         speed={2}
         rotationIntensity={1}
         floatIntensity={2}
+
+        speed={3}
+rotationIntensity={2}
+floatIntensity={3}
       >
         <Cube />
       </Float>
 
       {/* Camera Controls */}
       <OrbitControls enableZoom={true} />
+
+      camera={{ position: [0, 0, 6], fov: 50 }}
     </Canvas>
   );
 };

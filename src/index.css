@@ -8,3 +8,20 @@ body {
   background: #111111;
   font-family: sans-serif;
 }
+body::before {
+  content: "";
+
+  position: fixed;
+
+  width: 500px;
+  height: 500px;
+
+  background: rgba(0, 255, 204, 0.15);
+
+  filter: blur(120px);
+
+  top: -100px;
+  left: -100px;
+
+  z-index: -1;
+}
