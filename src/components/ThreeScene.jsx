@@ -1,34 +1,20 @@
-import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, Float } from "@react-three/drei";
-import { useRef } from "react";
+import { Canvas } from "@react-three/fiber";
+import {
+  OrbitControls,
+  Float,
+} from "@react-three/drei";
 
-function Cube() {
-  const meshRef = useRef();
-
-  useFrame(() => {
-    if (meshRef.current) {
-      meshRef.current.rotation.x += 0.01;
-      meshRef.current.rotation.y += 0.01;
-    }
-  });
-
-  return (
-    <mesh ref={meshRef}>
-      <boxGeometry args={[2, 2, 2]} />
-
-      <meshStandardMaterial
-        color="#22d3ee"
-        metalness={0.5}
-        roughness={0.2}
-      />
-    </mesh>
-  );
-}
+import Room from "./Room";
 
 const ThreeScene = () => {
   return (
     <Canvas
-      camera={{ position: [0, 0, 5] }}
+      shadows
+      camera={{
+        position: [0, 2, 6],
+        fov: 50,
+      }}
+
       style={{
         width: "100vw",
         height: "100vh",
@@ -36,31 +22,28 @@ const ThreeScene = () => {
       }}
     >
       {/* Ambient Light */}
-      <ambientLight intensity={0.5} />
+      <ambientLight intensity={0.7} />
 
-      {/* Directional Light */}
+      {/* Main Light */}
       <directionalLight
+        castShadow
         position={[5, 5, 5]}
         intensity={2}
       />
 
-      {/* Floating Cube */}
+      {/* Floating Room */}
       <Float
         speed={2}
-        rotationIntensity={1}
-        floatIntensity={2}
-
-        speed={3}
-rotationIntensity={2}
-floatIntensity={3}
+        rotationIntensity={0.2}
+        floatIntensity={0.5}
       >
-        <Cube />
+        <Room />
       </Float>
 
-      {/* Camera Controls */}
-      <OrbitControls enableZoom={true} />
-
-      camera={{ position: [0, 0, 6], fov: 50 }}
+      {/* Controls */}
+      <OrbitControls
+        enableZoom={true}
+      />
     </Canvas>
   );
 };
