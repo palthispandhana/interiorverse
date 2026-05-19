@@ -41,3 +41,6 @@ body::after {
 
   pointer-events: none;
 }
+canvas {
+  display: block;
+}
