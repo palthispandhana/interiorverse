@@ -44,3 +44,9 @@ body::after {
 canvas {
   display: block;
 }
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: #000000;
+}

@@ -1,26 +1,27 @@
-import { useEffect, useState } from "react";
-
-import ThreeScene from "./components/ThreeScene";
+import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Loader from "./components/Loader";
+import ThreeScene from "./components/ThreeScene";
+import About from "./components/About";
+import Projects from "./components/Projects";
 
 function App() {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 2500);
-  }, []);
-
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <div className="bg-black overflow-x-hidden">
 
-      {loading && <Loader />}
+      {/* Navbar */}
+      <Navbar />
 
-      <Hero />
+      {/* Hero Section */}
+      <div className="relative h-screen">
+        <Hero />
+        <ThreeScene />
+      </div>
 
-      <ThreeScene />
+      {/* About */}
+      <About />
+
+      {/* Projects */}
+      <Projects />
 
     </div>
   );
