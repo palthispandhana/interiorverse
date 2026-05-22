@@ -12,16 +12,26 @@ import InteractiveObject from "./InteractiveObject";
 
 import InfoCard from "./InfoCard";
 
+import ColorPicker from "./ColorPicker";
+
 const ThreeScene = () => {
 
   const [selected, setSelected] =
     useState(null);
+
+  const [objectColor, setObjectColor] =
+    useState("#22d3ee");
 
   return (
     <div className="relative w-full h-screen">
 
       {/* Info Card */}
       <InfoCard selected={selected} />
+
+      {/* Color Picker */}
+      <ColorPicker
+        setObjectColor={setObjectColor}
+      />
 
       <Canvas
         shadows
@@ -48,44 +58,16 @@ const ThreeScene = () => {
 
         <Environment preset="city" />
 
-        {/* Object 1 */}
+        {/* Interactive Object */}
         <Float
           speed={2}
-          rotationIntensity={0.5}
-          floatIntensity={1}
-        >
-          <InteractiveObject
-            position={[-3, 0, 0]}
-            color="#22d3ee"
-            title="Luxury Sofa"
-            setSelected={setSelected}
-          />
-        </Float>
-
-        {/* Object 2 */}
-        <Float
-          speed={2}
-          rotationIntensity={0.5}
+          rotationIntensity={1}
           floatIntensity={1}
         >
           <InteractiveObject
             position={[0, 0, 0]}
-            color="#a855f7"
-            title="Modern Table"
-            setSelected={setSelected}
-          />
-        </Float>
-
-        {/* Object 3 */}
-        <Float
-          speed={2}
-          rotationIntensity={0.5}
-          floatIntensity={1}
-        >
-          <InteractiveObject
-            position={[3, 0, 0]}
-            color="#f43f5e"
-            title="Designer Lamp"
+            color={objectColor}
+            title="Custom Furniture"
             setSelected={setSelected}
           />
         </Float>
@@ -96,9 +78,13 @@ const ThreeScene = () => {
           position={[0, -2, 0]}
           receiveShadow
         >
-          <planeGeometry args={[50, 50]} />
+          <planeGeometry
+            args={[50, 50]}
+          />
 
-          <shadowMaterial opacity={0.3} />
+          <shadowMaterial
+            opacity={0.3}
+          />
         </mesh>
 
         {/* Controls */}

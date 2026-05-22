@@ -11,7 +11,8 @@ const InteractiveObject = ({
 
   const meshRef = useRef();
 
-  const [hovered, setHovered] = useState(false);
+  const [hovered, setHovered] =
+    useState(false);
 
   useFrame(() => {
     if (meshRef.current) {
@@ -27,9 +28,13 @@ const InteractiveObject = ({
 
       scale={hovered ? 1.2 : 1}
 
-      onPointerOver={() => setHovered(true)}
+      onPointerOver={() =>
+        setHovered(true)
+      }
 
-      onPointerOut={() => setHovered(false)}
+      onPointerOut={() =>
+        setHovered(false)
+      }
 
       onClick={() =>
         setSelected({
@@ -40,11 +45,15 @@ const InteractiveObject = ({
 
       castShadow
     >
-      <boxGeometry args={[1.5, 1.5, 1.5]} />
+      {/* Geometry */}
+      <torusKnotGeometry
+        args={[0.8, 0.3, 128, 32]}
+      />
 
+      {/* Material */}
       <meshStandardMaterial
         color={hovered ? "#ffffff" : color}
-        metalness={0.5}
+        metalness={0.8}
         roughness={0.2}
       />
     </mesh>
