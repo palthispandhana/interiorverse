@@ -8,11 +8,13 @@ import {
 
 import { useState } from "react";
 
-import InteractiveObject from "./InteractiveObject";
-
 import InfoCard from "./InfoCard";
 
 import ColorPicker from "./ColorPicker";
+
+import RoomSelector from "./RoomSelector";
+
+import DynamicRoom from "./DynamicRoom";
 
 const ThreeScene = () => {
 
@@ -22,17 +24,25 @@ const ThreeScene = () => {
   const [objectColor, setObjectColor] =
     useState("#22d3ee");
 
+  const [currentRoom, setCurrentRoom] =
+    useState("Living Room");
+
   return (
     <div className="relative w-full h-screen">
 
-      {/* Info Card */}
+      {/* UI */}
       <InfoCard selected={selected} />
 
-      {/* Color Picker */}
       <ColorPicker
         setObjectColor={setObjectColor}
       />
 
+      <RoomSelector
+        currentRoom={currentRoom}
+        setCurrentRoom={setCurrentRoom}
+      />
+
+      {/* 3D Scene */}
       <Canvas
         shadows
 
@@ -58,16 +68,15 @@ const ThreeScene = () => {
 
         <Environment preset="city" />
 
-        {/* Interactive Object */}
+        {/* Dynamic Room */}
         <Float
           speed={2}
           rotationIntensity={1}
           floatIntensity={1}
         >
-          <InteractiveObject
-            position={[0, 0, 0]}
+          <DynamicRoom
+            currentRoom={currentRoom}
             color={objectColor}
-            title="Custom Furniture"
             setSelected={setSelected}
           />
         </Float>
