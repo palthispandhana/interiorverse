@@ -20,16 +20,15 @@ const projects = [
 const Projects = () => {
   return (
     <section
-      className="
-      min-h-screen
-      bg-[#050505]
-      text-white
-      flex flex-col
-      justify-center
-      items-center
-      px-6
-      py-20
-      "
+  
+    className="
+    absolute inset-0
+    flex flex-col
+    justify-center items-center
+    text-white
+    z-10
+    px-6
+   "
     >
 
       {/* Heading */}

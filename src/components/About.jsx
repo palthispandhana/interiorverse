@@ -34,13 +34,16 @@ const About = () => {
         About InteriorVerse
       </h2>
 
-      <p className="
+      <p 
+      className="
       max-w-3xl
       text-center
-      text-xl
+      text-lg md:text-xl
       text-gray-300
       leading-relaxed
-      ">
+      px-4
+     "
+     >
         InteriorVerse is an immersive 3D interior
         design experience built using React,
         Three.js, and React Three Fiber.

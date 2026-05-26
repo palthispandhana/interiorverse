@@ -87,3 +87,18 @@ body {
     color 0.3s ease,
     transform 0.3s ease;
 }
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #22d3ee;
+  border-radius: 10px;
+}
+body {
+  overflow-x: hidden;
+}

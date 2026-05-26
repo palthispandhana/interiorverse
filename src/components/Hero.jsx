@@ -10,16 +10,16 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
 
+
         className="
-        text-4xl
-        sm:text-5xl
-        md:text-7xl
-        font-extrabold
+        absolute inset-0
+        flex flex-col
+        justify-center items-center
         text-white
-        mb-6
-        text-center
-        px-4
-    "
+        z-10
+        px-6
+        "
+
       >
         InteriorVerse
       </motion.h1>

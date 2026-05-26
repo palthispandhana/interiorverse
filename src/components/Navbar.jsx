@@ -1,10 +1,18 @@
 import { motion } from "framer-motion";
 
+import { useState } from "react";
+
 const Navbar = () => {
+
+  const [menuOpen, setMenuOpen] =
+    useState(false);
+
   return (
     <motion.nav
       initial={{ y: -100 }}
+
       animate={{ y: 0 }}
+
       transition={{ duration: 1 }}
 
       className="
@@ -24,8 +32,7 @@ const Navbar = () => {
       {/* Logo */}
       <h1
         className="
-        text-2xl
-        md:text-3xl
+        text-2xl md:text-3xl
         font-extrabold
         tracking-wide
         text-cyan-400
@@ -34,7 +41,7 @@ const Navbar = () => {
         InteriorVerse
       </h1>
 
-      {/* Navigation Links */}
+      {/* Desktop Links */}
       <ul
         className="
         hidden md:flex
@@ -44,56 +51,87 @@ const Navbar = () => {
         "
       >
 
-        <li
-          className="
-          cursor-pointer
-          hover:text-cyan-400
-          transition
-          duration-300
-          "
-        >
+        <li className="hover:text-cyan-400 transition">
           Home
         </li>
 
-        <li
-          className="
-          cursor-pointer
-          hover:text-cyan-400
-          transition
-          duration-300
-          "
-        >
+        <li className="hover:text-cyan-400 transition">
           About
         </li>
 
-        <li
-          className="
-          cursor-pointer
-          hover:text-cyan-400
-          transition
-          duration-300
-          "
-        >
+        <li className="hover:text-cyan-400 transition">
           Projects
         </li>
 
-        <li
-          className="
-          cursor-pointer
-          hover:text-cyan-400
-          transition
-          duration-300
-          "
-        >
+        <li className="hover:text-cyan-400 transition">
           Contact
         </li>
 
       </ul>
 
-      {/* Mobile Menu Icon */}
-      <div className="md:hidden text-3xl cursor-pointer">
+      {/* Mobile Button */}
+      <button
+        onClick={() =>
+          setMenuOpen(!menuOpen)
+        }
+
+        className="
+        md:hidden
+        text-3xl
+        "
+      >
         ☰
-      </div>
+      </button>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+
+        <motion.div
+
+          initial={{
+            opacity: 0,
+            y: -20,
+          }}
+
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+
+          className="
+          absolute
+          top-20
+          right-6
+          bg-black/90
+          backdrop-blur-md
+          border border-cyan-400
+          rounded-2xl
+          p-6
+          flex flex-col
+          gap-4
+          md:hidden
+          "
+        >
+
+          <button className="hover:text-cyan-400">
+            Home
+          </button>
+
+          <button className="hover:text-cyan-400">
+            About
+          </button>
+
+          <button className="hover:text-cyan-400">
+            Projects
+          </button>
+
+          <button className="hover:text-cyan-400">
+            Contact
+          </button>
+
+        </motion.div>
+
+      )}
 
     </motion.nav>
   );
