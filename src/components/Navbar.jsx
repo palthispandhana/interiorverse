@@ -1,6 +1,26 @@
+import { motion } from "framer-motion";
+
 const Navbar = () => {
   return (
-    <nav className="fixed top-0 left-0 w-full flex justify-between items-center px-10 py-6 text-white z-50 bg-black/20 backdrop-blur-md">
+    <motion.nav
+
+      initial={{ y: -100 }}
+
+      animate={{ y: 0 }}
+
+      transition={{ duration: 1 }}
+
+      className="
+      fixed top-0 left-0
+      w-full
+      flex justify-between items-center
+      px-10 py-6
+      text-white
+      z-50
+      bg-black/20
+      backdrop-blur-md
+      "
+    >
 
       {/* Logo */}
       <h1 className="text-2xl font-bold tracking-wide">
@@ -9,6 +29,7 @@ const Navbar = () => {
 
       {/* Links */}
       <ul className="flex gap-8 text-lg">
+
         <li className="cursor-pointer hover:text-cyan-400 transition">
           Home
         </li>
@@ -24,9 +45,10 @@ const Navbar = () => {
         <li className="cursor-pointer hover:text-cyan-400 transition">
           Contact
         </li>
+
       </ul>
 
-    </nav>
+    </motion.nav>
   );
 };
 
