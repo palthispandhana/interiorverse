@@ -3,17 +3,17 @@ import { motion } from "framer-motion";
 const projects = [
   {
     title: "Luxury Living Room",
-    desc: "Modern cinematic interior experience.",
+    desc: "Modern cinematic interior experience with realistic lighting and immersive 3D interactions.",
   },
 
   {
     title: "Smart Bedroom",
-    desc: "Interactive futuristic bedroom design.",
+    desc: "Interactive futuristic bedroom design built using React Three Fiber and smooth animations.",
   },
 
   {
     title: "Future Workspace",
-    desc: "Modern workspace visualization.",
+    desc: "Premium workspace visualization with responsive layouts and dynamic UI effects.",
   },
 ];
 
@@ -25,13 +25,15 @@ const Projects = () => {
       bg-[#050505]
       text-white
       flex flex-col
-      justify-center items-center
+      justify-center
+      items-center
       px-6
+      py-20
       "
     >
 
+      {/* Heading */}
       <motion.h2
-
         initial={{
           opacity: 0,
           y: 50,
@@ -48,12 +50,28 @@ const Projects = () => {
 
         viewport={{ once: true }}
 
-        className="text-5xl font-bold mb-12"
+        className="
+        text-4xl
+        md:text-5xl
+        font-bold
+        mb-16
+        text-center
+        "
       >
         Featured Projects
       </motion.h2>
 
-      <div className="grid md:grid-cols-3 gap-8">
+      {/* Cards */}
+      <div
+        className="
+        grid
+        grid-cols-1
+        md:grid-cols-3
+        gap-8
+        w-full
+        max-w-6xl
+        "
+      >
 
         {projects.map((project, index) => (
 
@@ -83,18 +101,37 @@ const Projects = () => {
 
             className="
             bg-[#111111]
-            p-6
+            p-8
             rounded-2xl
             shadow-lg
             shadow-cyan-500/10
+            border
+            border-white/10
+            hover:border-cyan-400
+            transition
+            duration-300
             "
           >
 
-            <h3 className="text-2xl font-bold mb-4">
+            {/* Project Title */}
+            <h3
+              className="
+              text-2xl
+              font-bold
+              mb-4
+              text-cyan-400
+              "
+            >
               {project.title}
             </h3>
 
-            <p className="text-gray-400">
+            {/* Description */}
+            <p
+              className="
+              text-gray-400
+              leading-relaxed
+              "
+            >
               {project.desc}
             </p>
 

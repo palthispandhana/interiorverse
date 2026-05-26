@@ -44,19 +44,27 @@ const ThreeScene = () => {
 
       {/* 3D Scene */}
       <Canvas
-        shadows
+  shadows
 
-        camera={{
-          position: [0, 2, 8],
-          fov: 50,
-        }}
+  dpr={[1, 1.5]}
 
-        style={{
-          width: "100vw",
-          height: "100vh",
-          background: "#111111",
-        }}
-      >
+  camera={{
+    position: [0, 2, 8],
+    fov: 50,
+  }}
+
+  gl={{
+    antialias: true,
+    alpha: false,
+    powerPreference: "high-performance",
+  }}
+
+  style={{
+    width: "100vw",
+    height: "100vh",
+    background: "#111111",
+  }}
+>
         {/* Lights */}
         <ambientLight intensity={1} />
 
@@ -98,10 +106,11 @@ const ThreeScene = () => {
 
         {/* Controls */}
         <OrbitControls
-          autoRotate
-          autoRotateSpeed={0.5}
-        />
-
+  enableDamping
+  dampingFactor={0.05}
+  autoRotate
+  autoRotateSpeed={0.5}
+/>
       </Canvas>
 
     </div>

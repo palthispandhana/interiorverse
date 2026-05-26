@@ -11,13 +11,15 @@ const Hero = () => {
         transition={{ duration: 1 }}
 
         className="
-        text-5xl
+        text-4xl
+        sm:text-5xl
         md:text-7xl
         font-extrabold
         text-white
         mb-6
         text-center
-        "
+        px-4
+    "
       >
         InteriorVerse
       </motion.h1>
@@ -29,13 +31,14 @@ const Hero = () => {
         transition={{ delay: 0.5, duration: 1 }}
 
         className="
-        text-lg
+        text-base
+        sm:text-lg
         md:text-2xl
         text-gray-300
         mb-8
         text-center
         max-w-2xl
-        px-4
+        px-6
         "
       >
         Immersive 3D Interior Design Experience
@@ -51,17 +54,18 @@ const Hero = () => {
         whileTap={{ scale: 0.95 }}
 
         className="
-        px-8 py-4
+        px-6 md:px-8
+        py-3 md:py-4
         bg-cyan-400
         text-black
         rounded-full
         font-bold
-        text-lg
+        text-base md:text-lg
         transition
         duration-300
         shadow-lg
         shadow-cyan-500/50
-        "
+    "
       >
         Explore Now
       </motion.button>

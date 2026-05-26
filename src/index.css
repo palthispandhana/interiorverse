@@ -72,3 +72,18 @@ button,
 li {
   cursor: pointer;
 }
+body {
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(34, 211, 238, 0.12),
+      transparent 40%
+    ),
+    #000000;
+}
+* {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
