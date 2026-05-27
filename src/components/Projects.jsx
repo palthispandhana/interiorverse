@@ -19,7 +19,7 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section
+    <section id="projects"
   
     className="
     absolute inset-0

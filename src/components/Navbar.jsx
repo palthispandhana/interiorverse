@@ -43,31 +43,39 @@ const Navbar = () => {
 
       {/* Desktop Links */}
       <ul
-        className="
-        hidden md:flex
-        gap-8
-        text-lg
-        items-center
-        "
-      >
+  className="
+  hidden md:flex
+  gap-8
+  text-lg
+  items-center
+  "
+>
 
-        <li className="hover:text-cyan-400 transition">
-          Home
-        </li>
+  <a href="#home">
+    <li className="hover:text-cyan-400 transition">
+      Home
+    </li>
+  </a>
 
-        <li className="hover:text-cyan-400 transition">
-          About
-        </li>
+  <a href="#about">
+    <li className="hover:text-cyan-400 transition">
+      About
+    </li>
+  </a>
 
-        <li className="hover:text-cyan-400 transition">
-          Projects
-        </li>
+  <a href="#projects">
+    <li className="hover:text-cyan-400 transition">
+      Projects
+    </li>
+  </a>
 
-        <li className="hover:text-cyan-400 transition">
-          Contact
-        </li>
+  <a href="#contact">
+    <li className="hover:text-cyan-400 transition">
+      Contact
+    </li>
+  </a>
 
-      </ul>
+</ul>
 
       {/* Mobile Button */}
       <button

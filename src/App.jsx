@@ -4,6 +4,7 @@ import ThreeScene from "./components/ThreeScene";
 import About from "./components/About";
 import Projects from "./components/Projects";
 import Footer from "./components/Footer";
+import Contact from "./components/Contact";
 
 function App() {
   return (
@@ -13,16 +14,17 @@ function App() {
       <Navbar />
 
       {/* Hero Section */}
-      <div className="relative h-screen">
-        <Hero />
-        <ThreeScene />
-      </div>
+      <div
+  id="home"
+  className="relative h-screen"
+></div>
 
       {/* About */}
       <About />
 
       {/* Projects */}
       <Projects />
+      <Contact />
       <Footer />
 
     </div>
