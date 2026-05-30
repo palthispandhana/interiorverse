@@ -17,6 +17,8 @@ import ThemeToggle from "./components/ThemeToggle";
 import { useTheme }
 from "./context/ThemeContext";
 
+import Showcase from "./components/Showcase";
+
 function App() {
 
   const { darkMode } =
