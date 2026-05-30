@@ -18,6 +18,7 @@ import { useTheme }
 from "./context/ThemeContext";
 
 import Showcase from "./components/Showcase";
+import Portfolio from "./components/Portfolio";
 
 function App() {
 

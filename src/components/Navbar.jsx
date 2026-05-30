@@ -74,6 +74,11 @@ const Navbar = () => {
           >
             Home
           </li>
+          <a href="#portfolio">
+  <li className="hover:text-cyan-400 transition">
+    Portfolio
+  </li>
+</a>
         </a>
 
         <a href="#about">
