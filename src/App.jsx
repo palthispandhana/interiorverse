@@ -1,33 +1,21 @@
 import Navbar from "./components/Navbar";
-
 import Hero from "./components/Hero";
-
 import ThreeScene from "./components/ThreeScene";
-
 import About from "./components/About";
-
 import Projects from "./components/Projects";
-
+import Portfolio from "./components/Portfolio";
+import Showcase from "./components/Showcase";
 import Contact from "./components/Contact";
-
 import Footer from "./components/Footer";
-
 import ThemeToggle from "./components/ThemeToggle";
 
-import { useTheme }
-from "./context/ThemeContext";
-
-import Showcase from "./components/Showcase";
-import Portfolio from "./components/Portfolio";
+import { useTheme } from "./context/ThemeContext";
 
 function App() {
-
-  const { darkMode } =
-    useTheme();
+  const { darkMode } = useTheme();
 
   return (
     <div
-
       className={`
       overflow-x-hidden
       transition duration-500
@@ -38,17 +26,15 @@ function App() {
       }
       `}
     >
-
       {/* Navbar */}
       <Navbar />
 
-      {/* Hero */}
+      {/* Hero + 3D Scene */}
       <div
         id="home"
         className="relative h-screen"
       >
         <Hero />
-
         <ThreeScene />
       </div>
 
@@ -58,15 +44,20 @@ function App() {
       {/* Projects */}
       <Projects />
 
+      {/* Portfolio */}
+      <Portfolio />
+
+      {/* Showcase */}
+      <Showcase />
+
       {/* Contact */}
       <Contact />
 
       {/* Footer */}
       <Footer />
 
-      {/* Theme Button */}
+      {/* Theme Toggle */}
       <ThemeToggle />
-
     </div>
   );
 }
