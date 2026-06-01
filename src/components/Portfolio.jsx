@@ -1,26 +1,32 @@
+import { useState } from "react";
 const portfolioItems = [
   {
     title: "Modern Kitchen",
     category: "Kitchen",
+    image: "/images/kitchen.jpg",
   },
 
   {
     title: "Luxury Bedroom",
     category: "Bedroom",
+    image: "/images/bedroom.jpg",
   },
 
   {
     title: "Minimal Living Room",
     category: "Living Room",
+    image: "/images/livingroom.jpg",
   },
 
   {
-    title: "Contemporary Workspace",
+    title: "Future Workspace",
     category: "Workspace",
+    image: "/images/workspace.jpg",
   },
 ];
 
 const Portfolio = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
   return (
     <section
       id="portfolio"
@@ -73,31 +79,50 @@ const Portfolio = () => {
       >
         {portfolioItems.map((item, index) => (
           <div
-            key={index}
-            className="
-            bg-[#111111]
-            rounded-2xl
-            p-6
-            border
-            border-white/10
-            hover:border-cyan-400
-            transition
-            "
-          >
-            <div
-              className="
-              h-40
-              rounded-xl
-              bg-gradient-to-br
-              from-cyan-500/20
-              to-purple-500/20
-              mb-4
-              "
-            />
+  key={index}
+  className="
+  bg-[#111111]
+  rounded-2xl
+  p-6
+  border
+  border-white/10
+  hover:border-cyan-400
+  hover:-translate-y-2
+  transition
+  duration-300
+  "
+>
+            <img
+  src={item.image}
+  alt={item.title}
 
-            <h3 className="text-xl font-bold mb-2">
-              {item.title}
-            </h3>
+  onClick={() =>
+    setSelectedImage(item.image)
+  }
+
+  className="
+  h-40
+  w-full
+  object-cover
+  rounded-xl
+  mb-4
+  cursor-pointer
+  hover:scale-105
+  transition
+  "
+/>
+
+           <h3 className="text-xl font-bold mb-2">
+  {item.title}
+</h3>
+
+<p className="text-gray-400 mb-2">
+  {item.category}
+</p>
+
+<p className="text-gray-500 text-sm">
+  Interior visualization project
+</p>
 
             <p className="text-gray-400">
               {item.category}
@@ -105,6 +130,38 @@ const Portfolio = () => {
           </div>
         ))}
       </div>
+      {selectedImage && (
+
+  <div
+
+    onClick={() =>
+      setSelectedImage(null)
+    }
+
+    className="
+    fixed inset-0
+    bg-black/80
+    flex items-center justify-center
+    z-50
+    "
+  >
+
+    <img
+
+      src={selectedImage}
+
+      alt="Preview"
+
+      className="
+      max-w-[90%]
+      max-h-[90%]
+      rounded-2xl
+      "
+    />
+
+  </div>
+
+)}
     </section>
   );
 };
