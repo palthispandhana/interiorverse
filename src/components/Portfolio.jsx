@@ -6,25 +6,32 @@ const portfolioItems = [
     category: "Kitchen",
     image: "/images/kitchen.jpg",
   },
+
   {
     title: "Luxury Bedroom",
     category: "Bedroom",
     image: "/images/bedroom.jpg",
   },
+
   {
     title: "Minimal Living Room",
     category: "Living Room",
     image: "/images/livingroom.jpg",
   },
-  {
-    title: "Future Workspace",
-    category: "Workspace",
-    image: "/images/workspace.jpg",
-  },
 ];
 
 const Portfolio = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedCategory, setSelectedCategory] =
+  useState("All");
+
+  const filteredProjects =
+  selectedCategory === "All"
+    ? portfolioItems
+    : portfolioItems.filter(
+        (item) =>
+          item.category === selectedCategory
+      );
 
   return (
     <section
@@ -51,22 +58,56 @@ const Portfolio = () => {
 
       {/* Filter Buttons */}
       <div className="flex flex-wrap justify-center gap-4 mb-10">
-        <button className="px-4 py-2 rounded-full bg-cyan-400 text-black">
-          All
-        </button>
 
-        <button className="px-4 py-2 rounded-full bg-[#111111]">
-          Kitchen
-        </button>
+  <button
+    onClick={() => setSelectedCategory("All")}
+    className={`px-4 py-2 rounded-full ${
+      selectedCategory === "All"
+        ? "bg-cyan-400 text-black"
+        : "bg-[#111111]"
+    }`}
+  >
+    All
+  </button>
 
-        <button className="px-4 py-2 rounded-full bg-[#111111]">
-          Bedroom
-        </button>
+  <button
+    onClick={() => setSelectedCategory("Kitchen")}
+    className={`px-4 py-2 rounded-full ${
+      selectedCategory === "Kitchen"
+        ? "bg-cyan-400 text-black"
+        : "bg-[#111111]"
+    }`}
+  >
+    Kitchen
+  </button>
 
-        <button className="px-4 py-2 rounded-full bg-[#111111]">
-          Living Room
-        </button>
-      </div>
+  <button
+    onClick={() => setSelectedCategory("Bedroom")}
+    className={`px-4 py-2 rounded-full ${
+      selectedCategory === "Bedroom"
+        ? "bg-cyan-400 text-black"
+        : "bg-[#111111]"
+    }`}
+  >
+    Bedroom
+  </button>
+
+  <button
+    onClick={() => setSelectedCategory("Living Room")}
+    className={`px-4 py-2 rounded-full ${
+      selectedCategory === "Living Room"
+        ? "bg-cyan-400 text-black"
+        : "bg-[#111111]"
+    }`}
+  >
+    Living Room
+  </button>
+
+</div>
+
+     <p className="text-center text-gray-400 mb-8">
+  Showing {filteredProjects.length} project(s)
+</p>
 
       {/* Portfolio Grid */}
       <div
@@ -78,7 +119,7 @@ const Portfolio = () => {
         gap-8
         "
       >
-        {portfolioItems.map((item, index) => (
+        {filteredProjects.map((item, index) => (
           <div
             key={index}
             className="
