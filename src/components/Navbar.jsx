@@ -81,6 +81,12 @@ const Navbar = () => {
           </li>
         </a>
 
+        <a href="#faq">
+          <li className="hover:text-cyan-400 transition duration-300 cursor-pointer">
+            FAQ
+          </li>
+        </a>
+
         <a href="#contact">
           <li className="hover:text-cyan-400 transition duration-300 cursor-pointer">
             Contact
@@ -162,6 +168,12 @@ const Navbar = () => {
           <a href="#testimonials">
             <button className="hover:text-cyan-400 transition">
               Reviews
+            </button>
+          </a>
+
+          <a href="#faq">
+            <button className="hover:text-cyan-400 transition">
+              FAQ
             </button>
           </a>
 

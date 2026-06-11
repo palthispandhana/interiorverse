@@ -5,6 +5,7 @@ import About from "./components/About";
 import Projects from "./components/Projects";
 import Portfolio from "./components/Portfolio";
 import Testimonials from "./components/Testimonials";
+import FAQ from "./components/FAQ";
 import Showcase from "./components/Showcase";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
