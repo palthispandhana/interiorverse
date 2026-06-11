@@ -132,18 +132,21 @@ const Portfolio = () => {
     }
 
     className="
-    w-full
-    max-w-md
-    px-4
-    py-3
-    rounded-xl
-    bg-[#111111]
-    border
-    border-white/10
-    text-white
-    outline-none
-    focus:border-cyan-400
-    "
+w-full
+max-w-md
+px-4
+py-3
+rounded-xl
+bg-[#111111]
+border
+border-white/10
+text-white
+outline-none
+focus:border-cyan-400
+focus:shadow-lg
+focus:shadow-cyan-500/20
+transition
+"
   />
 
 </div>
