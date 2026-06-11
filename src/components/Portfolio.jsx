@@ -24,15 +24,29 @@ const Portfolio = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [selectedCategory, setSelectedCategory] =
   useState("All");
+  const [searchTerm, setSearchTerm] =
+  useState("");
 
   const filteredProjects =
-  selectedCategory === "All"
-    ? portfolioItems
-    : portfolioItems.filter(
-        (item) =>
-          item.category === selectedCategory
-      );
+  portfolioItems.filter((item) => {
 
+    const categoryMatch =
+      selectedCategory === "All" ||
+      item.category === selectedCategory;
+
+    const searchMatch =
+      item.title
+        .toLowerCase()
+        .includes(
+          searchTerm.toLowerCase()
+        );
+
+    return (
+      categoryMatch &&
+      searchMatch
+    );
+
+  });
   return (
     <section
       id="portfolio"
@@ -104,10 +118,53 @@ const Portfolio = () => {
   </button>
 
 </div>
+<div className="flex justify-center mb-8">
+
+  <input
+    type="text"
+
+    placeholder="Search projects..."
+
+    value={searchTerm}
+
+    onChange={(e) =>
+      setSearchTerm(e.target.value)
+    }
+
+    className="
+    w-full
+    max-w-md
+    px-4
+    py-3
+    rounded-xl
+    bg-[#111111]
+    border
+    border-white/10
+    text-white
+    outline-none
+    focus:border-cyan-400
+    "
+  />
+
+</div>
 
      <p className="text-center text-gray-400 mb-8">
   Showing {filteredProjects.length} project(s)
 </p>
+
+     {filteredProjects.length === 0 && (
+
+  <p
+    className="
+    text-center
+    text-red-400
+    mb-8
+    "
+  >
+    No projects found.
+  </p>
+
+)}
 
       {/* Portfolio Grid */}
       <div
