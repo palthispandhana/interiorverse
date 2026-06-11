@@ -4,6 +4,7 @@ import ThreeScene from "./components/ThreeScene";
 import About from "./components/About";
 import Projects from "./components/Projects";
 import Portfolio from "./components/Portfolio";
+import Testimonials from "./components/Testimonials";
 import Showcase from "./components/Showcase";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
